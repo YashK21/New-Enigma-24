@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import "../components/style/Signup.css";
-// import Login from "./Login";
+import "../style/Signup.css"
 const Register = () => {
   const [email,setEmail] = useState("")
   const [userName, setUserName] = useState("");
@@ -13,9 +12,9 @@ const Register = () => {
           type="text"
           className="inputBox"
           placeholder="enter email"
-          value={pass}
+          value={email}
           onChange={(e) => {
-            setPass(e.target.value);
+            setEmail(e.target.value);
           }}
         />
         <br/>
@@ -45,9 +44,9 @@ const Register = () => {
           type="password"
           className="inputBox"
           placeholder="confirm password"
-          value={pass}
+          value={cpass}
           onChange={(e) => {
-            setPass(e.target.value);
+            setCPass(e.target.value);
           }}
         />
       </form>
