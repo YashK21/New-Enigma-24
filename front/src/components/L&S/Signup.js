@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../style/Signup.css"
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const [email,setEmail] = useState("")
   const [userName, setUserName] = useState("");
   const [pass, setPass] = useState("");
   const [cpass, setCPass] = useState("")
+  const navigate = useNavigate()
+  const handleLoginandSignup = () => {
+    // console.log("name")
+    navigate("/login")
+  }  
   return (
     <div>
       <form>
@@ -49,6 +55,12 @@ const Register = () => {
             setCPass(e.target.value);
           }}
         />
+         <br />
+        <br />
+        <button>Submit</button>
+        <br />
+        <br />
+        <button onClick={handleLoginandSignup}>Had an Account? Login!!</button>
       </form>
     </div>
   );
