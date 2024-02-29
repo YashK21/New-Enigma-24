@@ -1,12 +1,15 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [userName, setUserName] = useState("");
   const [pass, setPass] = useState("");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLoginandSignup = () => {
-    navigate("/signup")
-  }
+    navigate("/signup");
+  };
+  const handleSubmit = () => {
+    navigate("/lvls");
+  };
   return (
     <div>
       <form>
@@ -33,7 +36,7 @@ const Login = () => {
         />
         <br />
         <br />
-        <button>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
         <br />
         <br />
         <button onClick={handleLoginandSignup}>No Account? Register!!</button>

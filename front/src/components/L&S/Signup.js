@@ -11,6 +11,9 @@ const Register = () => {
     // console.log("name")
     navigate("/login")
   }  
+  const handleSubmit = () => {
+    navigate("/lvls")
+  }
   return (
     <div>
       <form>
@@ -57,7 +60,7 @@ const Register = () => {
         />
          <br />
         <br />
-        <button>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
         <br />
         <br />
         <button onClick={handleLoginandSignup}>Had an Account? Login!!</button>
