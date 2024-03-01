@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 const Lvls = () => {
   const [ans, setAns] = useState();
+  const [img, setImg] = useState();
   // const handleAns = (e) => {
   //     setAns(e.target.value)
   // }
@@ -14,13 +15,11 @@ const Lvls = () => {
       <br />
       <br />
       <img
-        src={
-          require("../img/bridgetbishop.png")
-        //   require("bridgetbishop")
-        }
+        src={require("../img/bridgetbishop.png")}
         style={{ width: "900px", height: "500px" }}
         alt="img1"
       />
+
       <br />
       <br />
       <input
