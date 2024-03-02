@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 app.use(express.json({ limit: "15mb" }));
 require("./conn/db");
 const lvl = require("./Schema/Lvls");
