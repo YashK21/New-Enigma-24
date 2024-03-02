@@ -5,30 +5,28 @@ const Lvls = () => {
   // const handleAns = (e) => {
   //     setAns(e.target.value)
   // }
+
   const handleSubmit = () => {
     alert("submit");
   };
   const fetchImg = async () => {
-    const res = await fetch("http://localhost:5000/lvls", {
-      headers: {
-        "content-Type": "application/json",
-      },
-    });
+    const res = await fetch("http://localhost:5000/lvls");
     // console.log(res.data)
     let data = await res.json();
     data = data.data[0].img;
+    console.log(data);
     setImg(data);
   };
   useEffect(() => {
     fetchImg();
-  });
+  }, []);
   return (
     <div>
       <br />
       Lvls
       <br />
       <br />
-      {<img src={img} width={700} height={500} />}
+      {img ? <img src={img} width={700} height={500} /> : " "}
       <br />
       <br />
       <input
