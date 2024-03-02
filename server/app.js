@@ -1,21 +1,22 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+app.use(express.json({ limit: "15mb" }));
 require("./conn/db");
-app.use(express.json());
+const lvl = require("./Schema/Lvls");
+// const mongoose = require("mongoose");
 
-// newImg
-//   .save()
-//   .then((result) => console.log("Document saved:"))
-//   .catch((error) => console.error("Error saving document:", error));
-
-// Example: Retrieve all documents
-// Img.find({})
-//   .then((data) => console.log("Retrieved data:", data))
-//   .catch((error) => console.error("Error retrieving data:", error)); // const cors = require("cors");
-// app.use(cors());
+const cors = require("cors");
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("TMKOC");
+});
+app.get("/lvls", async (req, res) => {
+  const data = await lvl.find();
+  // console.log(data)
+  res.send({
+    data: data,
+  });
 });
 app.listen(5000, () => {
   console.log("Server RUNNING");
