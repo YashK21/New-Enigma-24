@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 const Lvls = () => {
   const [ans, setAns] = useState();
   const [img, setImg] = useState();
@@ -8,18 +8,27 @@ const Lvls = () => {
   const handleSubmit = () => {
     alert("submit");
   };
+  const fetchImg = async () => {
+    const res = await fetch("http://localhost:5000/lvls", {
+      headers: {
+        "content-Type": "application/json",
+      },
+    });
+    // console.log(res.data)
+    let data = await res.json();
+    data = data.data[0].img;
+    setImg(data);
+  };
+  useEffect(() => {
+    fetchImg();
+  });
   return (
     <div>
       <br />
       Lvls
       <br />
       <br />
-      <img
-        src={require("../img/bridgetbishop.png")}
-        style={{ width: "900px", height: "500px" }}
-        alt="img1"
-      />
-
+      {<img src={img} width={700} height={500} />}
       <br />
       <br />
       <input
